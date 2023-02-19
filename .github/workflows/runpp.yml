@@ -1,0 +1,17 @@
+name: runpp
+
+on:
+  push:
+    branches: main
+  workflow_dispatch:
+
+jobs:
+  info:
+    runs-on: self-hosted
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: run
+        run: |
+          /Applications/Microsoft\ PowerPoint.app/Contents/MacOS/Microsoft\ PowerPoint
