@@ -1,0 +1,30 @@
+name: test
+
+on:
+  push:
+    branches: main
+
+env:
+  BUILD_TYPE: Debug
+
+jobs:
+  test:
+    runs-on: sel-hosted
+
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3
+
+    - name: configure
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+
+    - name: build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+
+    - name: ctest
+      run: ctest -C ${{env.BUILD_TYPE}}
+      working-directory: ${{github.workspace}}/build
+
+    - name: hello_test
+      run: ./hello_test
+      working-directory: ${{github.workspace}}/build
