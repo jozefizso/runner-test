@@ -1,12 +1,10 @@
 name: runpp
 
 on:
-  push:
-    branches: main
   workflow_dispatch:
 
 jobs:
-  info:
+  runpp:
     runs-on: self-hosted
 
     steps:
