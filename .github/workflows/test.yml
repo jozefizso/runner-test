@@ -9,7 +9,7 @@ env:
 
 jobs:
   test:
-    runs-on: sel-hosted
+    runs-on: self-hosted
 
     steps:
     - name: checkout
