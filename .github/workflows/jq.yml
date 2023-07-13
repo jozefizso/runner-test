@@ -18,6 +18,7 @@ jobs:
           --arg build $RUN_ID
           --arg branch $BRANCH_NAME
           --arg description $DESCRIPTION
+          '$ARGS.named'
         env:
           RUN_ID: ${{ github.run_id }}
           BRANCH_NAME: ${{ github.ref_name }}
