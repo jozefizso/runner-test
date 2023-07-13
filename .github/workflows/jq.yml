@@ -1,0 +1,24 @@
+name: jq
+
+on:
+  push:
+    branches: main
+  workflow_dispatch:
+
+jobs:
+  jq:
+    runs-on: ubuntu-latest, macos-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: create-json
+        run: >-
+          jq --null-input
+          --arg build $RUN_ID
+          --arg branch $BRANCH_NAME
+          --arg description $DESCRIPTION
+        env:
+          RUN_ID: ${{ github.run_id }}
+          BRANCH_NAME: ${{ github.ref_name }}
+          DESCRIPTION: 'Custom text with "special" characters: C:\manifest.json'
