@@ -7,7 +7,7 @@ on:
 
 jobs:
   jq:
-    runs-on: ubuntu-latest, macos-latest
+    runs-on: [ubuntu-latest, macos-latest]
 
     steps:
       - name: checkout
