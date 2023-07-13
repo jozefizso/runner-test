@@ -15,9 +15,9 @@ jobs:
       - name: create-json
         run: >-
           jq --null-input
-          --arg build $RUN_ID
-          --arg branch $BRANCH_NAME
-          --arg description $DESCRIPTION
+          --arg build "$RUN_ID"
+          --arg branch "$BRANCH_NAME"
+          --arg description "$DESCRIPTION"
           '$ARGS.named'
         env:
           RUN_ID: ${{ github.run_id }}
